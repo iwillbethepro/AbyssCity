@@ -1,0 +1,20 @@
+### JWT 토큰 발급
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+  "username": "nagochan",
+  "password": "Youcantcrack12345"
+}
+
+### protected: 공략 리스트 조회 (JWT 인증)
+GET http://127.0.0.1:8000/api/guides/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MTc3MjAyLCJpYXQiOjE3NDgxNzY5MDIsImp0aSI6IjMxMWZhZDJhMDkwYzRhOTA4N2FlODhmZmU1MGUwNTlmIiwidXNlcl9pZCI6MX0.CTRaVPU-gTK95KHLHG6BHPlGIITsE-ab-y7LeWhSIj8
+
+### 1) 액세스 토큰 갱신
+POST http://127.0.0.1:8000/api/token/refresh/
+Content-Type: application/json
+
+{
+  "refresh": "<여기에_리프레시_토큰_붙여넣기>"
+}
